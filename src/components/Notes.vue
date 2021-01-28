@@ -25,6 +25,7 @@
               :type="[!note.editable ? 'hidden' : 'text']"
               v-model="titleNote"
               @keyup.enter="submitNewTitleOrDescr(note.id)"
+              @keyup.esc="note.editable = false"
               class="note__input"
               >
             
@@ -39,6 +40,7 @@
               :type="[!note.editable ? 'hidden' : 'text']"
               v-model="descrNote"
               @keyup.enter="submitNewTitleOrDescr(note.id)"
+              @keyup.esc="note.editable = false"
               class="note__input"
               >
             <div class="note__date">{{note.date}}</div>
@@ -76,7 +78,7 @@ export default {
     },
     submitNewTitleOrDescr(id) {
       this.$emit('getNewTitle', id, this.titleNote, this.descrNote)
-    }
+    },
   }
 }
 </script>
