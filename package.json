@@ -1,5 +1,5 @@
 {
-  "name": "vue-cli",
+  "name": "note-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {
