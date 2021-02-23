@@ -12,8 +12,7 @@
         <div class="note"
           v-for="(note, index) in notes"
           :key="index"
-          :class="{ 'important': note.priority === 'important', 
-                    'very-important': note.priority === 'very-important'}"
+          :class="note.priority"
           >
           <div class="note__header">
             <h4 class="note__title"

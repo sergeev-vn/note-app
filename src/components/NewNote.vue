@@ -3,23 +3,32 @@
     <div class="new-note__title">
       <label class="label">
         <div class="label__text">Title</div>
-        <input type="text" class="input" v-model="note.title">
+        <input type="text" class="input" v-model="note.title" />
       </label>
     </div>
     <div class="new-note__description">
       <label class="label">
         <div class="label__text">Description</div>
-        <textarea class="textarea label__textarea" v-model="note.descr" name="" id="" cols="30" rows="3"></textarea>
+        <textarea
+          class="textarea label__textarea"
+          v-model="note.descr"
+          name=""
+          id=""
+          cols="30"
+          rows="3"
+        ></textarea>
       </label>
     </div>
     <div class="new-note__priority">
       <div class="new-note__priority-text">
-        Priority: 
+        Priority:
       </div>
       <select name="priority" v-model="note.priority" id="priority">
-        <option value="regular">Regular</option>
-        <option value="important">Important</option>
-        <option value="very-important">Very important 🔥</option>
+        <option
+          v-for="(priority, index) in priorities"
+          :key="index"
+          :value="priority"
+        >{{priority}}</option>
       </select>
     </div>
     <div class="new-note__button">
@@ -33,15 +42,20 @@ export default {
   props: {
     note: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
+  },
+  data() {
+    return {
+      priorities: ["regular", "important", "very-important"],
+    };
   },
   methods: {
     addNewNote() {
-      this.$emit('addNewNote')
-    }
-  }
-}
+      this.$emit("addNewNote");
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -62,7 +76,6 @@ export default {
   margin-bottom: 30px;
 }
 .note__close {
-background-color: transparent;
+  background-color: transparent;
 }
-
 </style>
